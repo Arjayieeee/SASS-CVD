@@ -1,4 +1,13 @@
 .header {
+    position: relative;
+    position: fixed;
+    width: 100%;
+   
+    &_wrapper{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
     .branding{
         display: flex;
         align-items: center;
@@ -15,4 +24,107 @@
         }
        
     }
+    &_nav {
+        position: absolute;
+        background: #ffffff;
+        top: 8rem;
+        right: -100rem;
+        width: 100%;
+        height: 100vh;
+        text-align: center;
+        text-decoration: none;
+        transition: .5s ease;
+
+
+        ul{
+            list-style: none;
+            text-align: center;
+            
+           li{
+                margin-left: 0;
+                border-bottom: 1px solid #2b2b2b;
+                padding:1.5rem 0 ;
+               
+              a{
+                color: $clr-dark;
+                font-size: 3rem;
+              }  
+              &:hover{
+                background: #494646;
+                a{
+                    color: #ffa700;
+                }
+                }
+           }
+           
+        } 
+         
+        &.open{
+            right:0; 
+            transition: .5s ease;
+        }
+    }
+   
+    
+    .toggle_menu{
+        // position: absolute;
+        // right: 3rem;
+        // top: 3rem;
+        span{
+            width: 3.5rem;
+             height: .3rem;
+            background-color: #ffa700;
+            display: block;
+            margin-bottom: .5rem;
+            border-radius: 5rem ;
+            transition: .5s ease;
+        }
+       &.open{
+            span:first-child{
+                transform: translate(0,10px)rotate(225deg);
+                transition: .5s ease;
+            }
+            span:nth-child(2){
+                opacity: 0;
+                // transition: .5s ease;
+               
+            }
+             span:last-child{
+                transform: translate(0,-6px)rotate(-225deg);
+                transition: .5s ease;
+            }
+    
+        }
+    }
+    
+    @include mediaQuery($break-lg) {
+        .toggle_menu{
+            display: none;
+        }
+        &_nav{
+            position: unset;
+            width: unset;
+            height: unset;
+            background: none;
+               ul{
+                display: flex;
+                    li{
+                        margin-left: 2rem;
+                        a{
+                            color: $clr-light;
+                        }
+                        &:hover{
+                            background: none;
+                            a{
+                                color: $clr-primary
+                            }
+                        }
+                    }
+               }
+        }
+        
+    }
+
 }
+
+

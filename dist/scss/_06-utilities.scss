@@ -64,6 +64,16 @@ $alignments:(
     }
 }
 
+.btn{
+    padding: 1.2rem 1.5rem;
+    border-radius: 5rem;
+    display: inline-block;
+    background: #ffa700;
+    color: aliceblue;
+        :hover{
+            background:#2b2b2b;
+        }
+}
 
 
 
